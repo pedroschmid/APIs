@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <title>Cars CRUD</title>
+
+<body>
+    May Node and Express be with you.
+
+    <ul class="models">
+        <% for(var i=0; i<models.length; i++) {%>
+        <li class="model">
+            <span><%= models[i].model %></span>
+            <span><%= models[i].year %></span>
+            <span><%= models[i].plate %></span>
+        </li>
+
+        <form action="/cars" method="POST">
+            <button type="button" class="btn btn-danger">Delete</button>
+        </form>
+
+        <% } %>
+    </ul>
+
+    <form action="/cars" method="POST">
+        <div class="form-group">
+            <label>Model</label>
+            <input type="text" class="form-control" placeholder="Enter the car model..." name="model">
+        </div>
+
+        <div class="form-group">
+            <label>Model</label>
+            <input type="text" class="form-control" placeholder="Enter fabrication year..." name="year">
+        </div>
+        
+        <div class="form-group">
+            <label>Model</label>
+            <input type="text" class="form-control" placeholder="Enter the license plate..." name="plate">
+        </div>
+
+        <button type="button" class="btn btn-success">Submit</button>
+    </form>
+</body>
+
+</html>
