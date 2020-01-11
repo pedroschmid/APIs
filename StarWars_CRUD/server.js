@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
-const url = 'mongodb+srv://root:<password>@cluster0-zp9uk.mongodb.net/test?retryWrites=true&w=majority'
+const url = 'mongodb+srv://root:root@cluster0-zp9uk.mongodb.net/test?retryWrites=true&w=majority'
 
 // Initializing express
 const app = express()
@@ -27,7 +27,7 @@ MongoClient.connect(url, (err, client) => {
 
 // GET
 app.get('/', (req, res) => {
-         db.collection('quotes').find().toArray((err, result) => {
+        db.collection('quotes').find().toArray((err, result) => {
         res.render('index.ejs', {quotes: result})
     })
 })
