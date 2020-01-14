@@ -16,8 +16,6 @@ const connection = mysql.createConnection({
     database: 'UserAuthentication'
 })
 
-connection.connect()
-
 // Session
 app.use(session({
     secret: 'secret',
@@ -28,15 +26,11 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-// Starting server
-app.listen(3000, () => {
-    console.log('Server running on port 3000...')
-})
 
 // Routes
 // Show index page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + './views/login.html'))
+    res.sendFile(__dirname + './index.html')
 })
 
 app.get('/home', (req, res) => {
@@ -68,4 +62,9 @@ app.post('/auth', (req, res) => {
         res.send('Please enter Username and Password!')
         res.end()
     }
+})
+
+// Starting server
+app.listen(3000, () => {
+    console.log('Server running on port 3000...')
 })
