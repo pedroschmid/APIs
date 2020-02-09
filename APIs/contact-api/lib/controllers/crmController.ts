@@ -16,18 +16,6 @@ export class ContactController {
         })
     }
 
-    public getContactWithID(req: Request, res: Response) {
-        let ID = req.params.contactId
-
-        Contact.findById(ID, (err, contact) => {
-            if(err) {
-                res.send(err)
-            }
-
-            res.json(contact)
-        })
-    }
-
     public addNewContact(req: Request, res: Response) {
         let newContact = new Contact(req.body)
 
@@ -37,30 +25,6 @@ export class ContactController {
             }
 
             res.json(contact)
-        })
-    }
-
-    public updateContact(req: Request, res: Response) {
-        let ID = req.params.contactId
-
-        Contact.findOneAndUpdate({ _id: ID }, req.body, { new: true }, (err, contact) => {
-            if(err) {
-                res.send(err)
-            }
-
-            res.json(contact)
-        })
-    }
-
-    public deleteContact(req: Request, res: Response) {
-        let ID = req.params.contactId
-
-        Contact.remove({ _id: ID }, (err) => {
-            if(err) {
-                res.send(err)
-            }
-
-            res.json({ message: 'Successfully deleted contact!' })
         })
     }
 }
